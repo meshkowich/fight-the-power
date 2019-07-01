@@ -2,7 +2,7 @@
   <div class="parallax-container">
     <div class="parallax">
       <div id="title" class="slide header">
-        <h1>Our world is under threat</h1>
+        <h1>Our existence is under threat</h1>
       </div>
 
       <div id="slide1" class="slide">
@@ -24,7 +24,7 @@
 
       <div id="slide3" class="slide">
         <div class="title">
-          <h1>it is our duty</h1>
+          <h1>It is our duty</h1>
           <p>to rise up to the greatest challenge we have ever faced</p>
         </div>
       </div>
@@ -45,14 +45,6 @@ export default {
   name: 'stars',
   components: {
     'nav-button' : navButton
-  },
-  props: {
-    msg: String
-  },
-  data: function() {
-    return {
-      kottt: 'aaaa'
-    }
   }
 }
 
@@ -61,7 +53,7 @@ export default {
 <style scoped lang="less">
 @import (css) url("//fonts.googleapis.com/css?family=Nunito");
 .parallax-container {
-  height: 100vh;
+  height: calc(100vh - 22px);
   overflow: hidden;
 }
 .parallax { 
@@ -129,10 +121,6 @@ img:last-of-type {
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
 }
 
-.slide:nth-child(2n) .title {
-  
-}
-
 .slide:nth-child(2n+1) .title {
   margin-left: auto;
   margin-right: 0;
@@ -151,7 +139,7 @@ img:last-of-type {
 }
 
 #title {
-  background-image: url("../assets/ninjas.png");
+  background-image: url("../assets/earth.jpg");
   z-index:2;
 }
 
@@ -162,12 +150,13 @@ img:last-of-type {
 }
 @keyframes shake {
   0%   {transform: translateX(0px) translateY(0px)}
-  15%  {transform: translateX(5px) translateY(5px)}
-  30%  {transform: translateX(-5px) translateY(-5px)}
-  45% {transform: translateX(-5px) translateY(5px)}
-  60% {transform: translateX(5px) translateY(-5px)}
-  75% {transform: translateX(-5px) translateY(5px)}
-  90% {transform: translateX(3px) translateY(-3px)}
+  15%  {transform: translateX(.5px) translateY(.5px)}
+  30%  {transform: translateX(-.5px) translateY(-.5px)}
+  45% {transform: translateX(-.5px) translateY(.5px)}
+  60% {transform: translateX(.5px) translateY(-.5px)}
+  75% {transform: translateX(-.5px) translateY(.5px)}
+  90% {transform: translateX(.3px) translateY(-.3px)}
+  100% {transform: translateX(-.1px) translateY(.1px)}
 }
 
 #slide1:before {
@@ -181,9 +170,6 @@ img:last-of-type {
   display: flex;
   align-items: flex-end;
   padding: 2rem;
-  .title {
-    width: auto;
-  }
 }
 
 #slide3:before {

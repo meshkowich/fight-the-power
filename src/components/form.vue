@@ -1,14 +1,12 @@
 <template>
-  <div class="form-container">
-    <form v-on:submit="sendXhr">
-      <div class="main-carousel">
-        <div v-for="(item, index) in items" :key="index" class="carousel-cell">
-          <img v-bind:src="require(`@/assets/${item.image}`)">
-        </div>
+  <div class="form-container">    
+    <div class="main-carousel">
+      <div v-for="(item, index) in items" :key="index" class="carousel-cell">
+        <img v-bind:src="require(`@/assets/${item.image}`)">
       </div>
-      <p>{{selection}}</p>
-      <button type="submit">Submit</button>
-    </form>
+    </div>
+    <p>{{selection}}</p>
+    <button class="submit" v-on:click="sendXhr" type="submit">Submit</button>    
     <p>You have chosen: {{ reqresAnswer }}</p>
     <p>{{ reqresSuggest }}</p>
   </div>
@@ -21,9 +19,10 @@ console.log(flkty);
 export default {
   mounted() {
     console.log('mounted');
-    // setTimeout(() => {
-      this.initFlickity();
-    // },10);
+    this.initFlickity();
+    this.selection = this.items[0].name;
+    this.suggest = this.items[0].suggest;
+    
   },
   activated() {
     console.log(flkty);
@@ -33,13 +32,13 @@ export default {
     return {
       selection: "not indicated",
       suggest: "",
-      reqresAnswer: "empty",
+      reqresAnswer: "none",
       reqresSuggest: "",
       items: [
-        {name: 'Rocky the Pious', image: 'pray.png', suggest: 'You serve to the higher forces of this world'},
-        {name: 'Fluffo & Katzooie', image: 'ninjas.png', suggest: 'You are into Eastern mysticism and ZEN'},
-        {name: 'Plumber', image: 'plumber.png', suggest: 'You are very handy'},
-        {name: 'Georgie the NUMTOT', image: 'bike.png', suggest: 'You liek to hang at New urbanist memes for transit-oriented teens'}
+        {name: 'Rocky the Pious', image: 'pray.png', suggest: 'You serve the higher forces of this world'},
+        {name: 'Fluffo & Katzooie', image: 'ninjas.png', suggest: 'You are into Eastern mysticism and Zen'},
+        {name: 'Plumber Cat', image: 'plumber.png', suggest: 'You are very handy'},
+        {name: 'Georgie the NUMTOT', image: 'bike.png', suggest: 'You like to hang at "New urbanist memes for transit-oriented teens" FB group'}
       ]
     }
   },
@@ -79,8 +78,8 @@ export default {
         this.selection = this.items[index].name;
         this.suggest = this.items[index].suggest;
       });
-      flkty.on( 'scroll', (progress) => {
-        this.selection = '...';
+      flkty.on( 'scroll', () => {
+        // this.selection = 'mew';
       });      
     }
   }
@@ -111,5 +110,21 @@ export default {
     }
     
   }
+}
+button.submit {
+  cursor: pointer;
+  background-color: #c1bba3;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  font-family: Nunito;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+.form-container {
+  padding-bottom: 4rem;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/about" div class="do-it"><span>do it</span></router-link>
+  <router-link to="/choose" div class="do-it"><span>do it</span></router-link>
 </template>
 
 <script>
