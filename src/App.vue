@@ -3,8 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/choose">Choose fighter</router-link>
+      <router-link to="/fight">Fight</router-link>
     </div>
-    <keep-alive include="choose">
+    <keep-alive include="choose, fight">
       <router-view/>
     </keep-alive>
   </div>
